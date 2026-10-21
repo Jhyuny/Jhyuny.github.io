@@ -1,0 +1,124 @@
+% Based on the Rover Resume Fancy Template.
+% Compile with XeLaTeX or Tectonic.
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{inter}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Sans CJK KR}
+\setCJKsansfont{Noto Sans CJK KR}
+\setCJKmonofont{Noto Sans CJK KR}
+\xeCJKsetup{CJKspace=true}
+\usepackage[dvipsnames]{xcolor}
+\colorlet{CVGreen}{PineGreen}
+\colorlet{icnclr}{gray}
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep,left=0pt..1.5em}
+\usepackage{titlesec}
+\usepackage{xhfill}
+\setcounter{secnumdepth}{0}
+\titleformat{\section}{\color{PineGreen}\large\interheavy}{}{}{\sectionrule}[\global\RemVStrue]
+\titlespacing{\section}{0pt}{2ex plus .5ex minus .2ex}{1.8ex plus .2ex}
+\newcommand{\sectionrule}[1]{#1~\xrfill[.5ex]{1pt}[gray]}
+\titleformat{\subsection}{\small\normalfont}{}{}{\rvs}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\newif\ifRemVS
+\newcommand{\rvs}{\ifRemVS\vspace{-1.5ex}\fi\global\RemVSfalse}
+\usepackage{fontawesome5}
+\usepackage[unicode,bookmarks=false]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=CVGreen,
+  pdftitle={Jeonghyun Kim — Curriculum Vitae},
+  pdfauthor={Jeonghyun Kim},
+  pdfsubject={Research, education, publications, and projects},
+  pdfkeywords={Jeonghyun Kim, LLM, knowledge distillation, AI agent}
+}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\hyphenpenalty=10000
+\exhyphenpenalty=1000
+\raggedbottom
+\newcommand{\me}{\textbf{Jeonghyun Kim}}
+\newcommand{\cvpub}[3]{%
+  \item\begin{minipage}[t]{\linewidth}
+    \textbf{#1}\par
+    #2\par
+    #3\par
+  \end{minipage}}
+\newcommand{\cventry}[3]{%
+  \noindent\begin{minipage}{\linewidth}
+    \rvs
+    {\small\textbf{#1}\hfill #2\par}
+    \begin{itemize}[topsep=2pt]\item #3\end{itemize}
+  \end{minipage}\par}
+
+\begin{document}
+\begin{center}
+  {\fontsize{36}{36}\selectfont\interheavy Jeonghyun Kim}\\\bigskip
+  % TODO: 전화번호 / 링크 채우기
+  {\color{icnclr}\faIcon{mobile-alt}} +82 10-TODO $|$
+  {\color{icnclr}\faEnvelope[regular]} \href{mailto:wjdgus01227@gmail.com}{wjdgus01227@gmail.com}\\
+  \href{https://www.linkedin.com/in/TODO/}{{\color{icnclr}\faLinkedinIn} LinkedIn} $|$
+  \href{https://github.com/TODO}{{\color{icnclr}\faGithub} GitHub} $|$
+  \href{https://scholar.google.com/citations?user=TODO}{Google Scholar}
+\end{center}
+
+\section{Res\color{black}earch Interests}
+\footnotesize
+Large language models under constrained settings, with a focus on model compression and
+knowledge distillation, supervised fine-tuning and reinforcement learning, retrieval-augmented
+generation (RAG), and LLM-based AI agents. Research interests include calibrated uncertainty
+in teacher--student distillation and domain-specific LLM applications for medical AI.
+
+\section{Edu\color{black}cation}
+\subsection{M.S. $|$ {\normalfont\textit{Department of Artificial Intelligence Convergence}} \hfill 2024.TODO–2027.TODO}
+\begin{itemize}
+  \item Ewha Womans University \hfill Seoul, South Korea
+  \item LKI Lab, Advisor: Prof. Hyunsoo Cho % TODO: 확인
+\end{itemize}
+\subsection{B.S. $|$ {\normalfont\textit{Division of Mechanical and Biomedical Engineering}} \hfill 2021.TODO–2024.TODO}
+\begin{itemize}
+  \item Ewha Womans University \hfill Seoul, South Korea
+\end{itemize}
+
+\section{Pub\color{black}lications}
+\subsection{International Conferences}
+\begin{itemize}
+\cvpub{Trust the Uncertain Teacher: Distilling Dark Knowledge via Calibrated Uncertainty}
+  {\me, Richeng Xuan, Hyung Wook Noh, SooKyung Kim, Hyunsoo Cho}
+  {Findings of the Association for Computational Linguistics: EMNLP, 2026. Accepted.}
+\cvpub{LYRICS: Line-by-Line Lyric Generation with Joint Control of Syllables, Context, and Rhyme}
+  {Seoyeon Ko*, Hyunseo Kim*, Seoyeong Hwang*, Jihyun Yu, \me, Hyunsoo Cho, Junhyug Noh}
+  {International Conference on Information and Communication Technology Convergence (ICTC), 2025.}
+\end{itemize}
+
+\subsection{Preprints \& Under Review}
+\begin{itemize}
+\cvpub{Forward Clinical Features Enable Treatment-Aware Prediction and What-If Scenario Analysis for Acute Kidney Injury}
+  {Hyung Wook Noh*, Chan Hur*, \me*, Yoonseon Song, Hyunsoo Cho, Yunseo Ku, Dae Eun Choi}
+  {Under review, 2026.}
+\end{itemize}
+
+\section{Res\color{black}earch Projects}
+\cventry{Multimodal AI for Early Diagnosis of Hepato-Pancreato-Biliary Premalignant Lesions}{TODO}{%
+  Global Basic Research Laboratory project (간담췌 전암 진단을 위한 멀티모달 AI 기초연구실)\par
+  Developed AI-agent-based automatic training data generation and CT findings prediction models.}
+\cventry{XAI-LLM-based Multimodal 3D Vital Node for Chronic Kidney Disease}{TODO}{%
+  Korea ARPA-H project for CKD prevention, management, and early detection of acute deterioration\par
+  Fine-tuned reasoning LLMs for clinical decision support; preprocessed and generated training data.}
+
+% TODO: Industry Experience / Awards / Patents 등 필요 시 추가
+% \section{Ind\color{black}ustry Experience}
+% \cventry{Role, Company}{YYYY.MM–YYYY.MM}{설명}
+
+\section{Ski\color{black}lls}
+\begin{minipage}{\linewidth}
+\textbf{Languages \& Tools:} Python, Linux, Git\par
+\textbf{Frameworks:} PyTorch, Hugging Face, LangChain, LangGraph\par
+\textbf{Languages:} Korean (native), English (TODO)
+\end{minipage}
+
+\end{document}
