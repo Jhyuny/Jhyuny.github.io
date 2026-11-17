@@ -5,9 +5,11 @@
 \usepackage{inter}
 \renewcommand*\familydefault{\sfdefault}
 \usepackage{xeCJK}
-\setCJKmainfont{Noto Sans CJK KR}
-\setCJKsansfont{Noto Sans CJK KR}
-\setCJKmonofont{Noto Sans CJK KR}
+% Use Noto Sans CJK KR if installed, otherwise fall back to macOS Apple SD Gothic Neo.
+\IfFontExistsTF{Noto Sans CJK KR}{\def\cjkfont{Noto Sans CJK KR}}{\def\cjkfont{Apple SD Gothic Neo}}
+\setCJKmainfont{\cjkfont}
+\setCJKsansfont{\cjkfont}
+\setCJKmonofont{\cjkfont}
 \xeCJKsetup{CJKspace=true}
 \usepackage[dvipsnames]{xcolor}
 \colorlet{CVGreen}{PineGreen}
@@ -58,12 +60,11 @@
 \begin{document}
 \begin{center}
   {\fontsize{36}{36}\selectfont\interheavy Jeonghyun Kim}\\\bigskip
-  % TODO: 전화번호 / 링크 채우기
-  {\color{icnclr}\faIcon{mobile-alt}} +82 10-TODO $|$
+  {\color{icnclr}\faIcon{mobile-alt}} +82 10-5900-1997 $|$
   {\color{icnclr}\faEnvelope[regular]} \href{mailto:wjdgus01227@gmail.com}{wjdgus01227@gmail.com}\\
-  \href{https://www.linkedin.com/in/TODO/}{{\color{icnclr}\faLinkedinIn} LinkedIn} $|$
-  \href{https://github.com/TODO}{{\color{icnclr}\faGithub} GitHub} $|$
-  \href{https://scholar.google.com/citations?user=TODO}{Google Scholar}
+  \href{https://www.linkedin.com/in/jeonghyun-kim-27391a2a2/}{{\color{icnclr}\faLinkedinIn} LinkedIn} $|$
+  \href{https://github.com/Jhyuny}{{\color{icnclr}\faGithub} GitHub} $|$
+  \href{https://scholar.google.com/citations?user=Z8nVX3wAAAAJ}{Google Scholar}
 \end{center}
 
 \section{Res\color{black}earch Interests}
@@ -73,13 +74,21 @@ knowledge distillation, supervised fine-tuning and reinforcement learning, retri
 generation (RAG), and LLM-based AI agents. Research interests include calibrated uncertainty
 in teacher--student distillation and domain-specific LLM applications for medical AI.
 
+\section{Res\color{black}earch Experience}
+\cventry{Commissioned Researcher, ETRI}{2026.01–Present}{%
+  Lifecare AX Research Section, Electronics and Telecommunications Research Institute\par
+  Designed clinician-guided, step-by-step reasoning structures for LLMs on chronic kidney disease patient data,
+  from patient-state assessment and differential diagnosis to treatment planning, and built the corresponding training data.\par
+  Trained models via supervised fine-tuning and reinforcement learning, comparing medical-domain and general-purpose LLMs
+  across loss functions and tuning strategies; currently designing evaluation protocols for reasoning reliability.}
+
 \section{Edu\color{black}cation}
-\subsection{M.S. $|$ {\normalfont\textit{Department of Artificial Intelligence Convergence}} \hfill 2024.TODO–2027.TODO}
+\subsection{M.S. $|$ {\normalfont\textit{Department of Artificial Intelligence Convergence}} \hfill 2024.09–2027.02}
 \begin{itemize}
   \item Ewha Womans University \hfill Seoul, South Korea
-  \item LKI Lab, Advisor: Prof. Hyunsoo Cho % TODO: 확인
+  \item LKI Lab, Advisor: Prof. Hyunsoo Cho
 \end{itemize}
-\subsection{B.S. $|$ {\normalfont\textit{Division of Mechanical and Biomedical Engineering}} \hfill 2021.TODO–2024.TODO}
+\subsection{B.S. $|$ {\normalfont\textit{Division of Mechanical and Biomedical Engineering}} \hfill 2021.03–2024.02}
 \begin{itemize}
   \item Ewha Womans University \hfill Seoul, South Korea
 \end{itemize}
@@ -95,6 +104,13 @@ in teacher--student distillation and domain-specific LLM applications for medica
   {International Conference on Information and Communication Technology Convergence (ICTC), 2025.}
 \end{itemize}
 
+\subsection{Book Chapters}
+\begin{itemize}
+\cvpub{Chapter 4. Foundations of LLMs and Financial Applications}
+  {\me}
+  {In \textit{Finance and Large Language Models}, Springer, 2025.}
+\end{itemize}
+
 \subsection{Preprints \& Under Review}
 \begin{itemize}
 \cvpub{Forward Clinical Features Enable Treatment-Aware Prediction and What-If Scenario Analysis for Acute Kidney Injury}
@@ -103,22 +119,27 @@ in teacher--student distillation and domain-specific LLM applications for medica
 \end{itemize}
 
 \section{Res\color{black}earch Projects}
-\cventry{Multimodal AI for Early Diagnosis of Hepato-Pancreato-Biliary Premalignant Lesions}{TODO}{%
+\cventry{Multimodal AI for Early Diagnosis of Hepato-Pancreato-Biliary Premalignant Lesions}{2025.06–2028.05}{%
   Global Basic Research Laboratory project (간담췌 전암 진단을 위한 멀티모달 AI 기초연구실)\par
   Developed AI-agent-based automatic training data generation and CT findings prediction models.}
-\cventry{XAI-LLM-based Multimodal 3D Vital Node for Chronic Kidney Disease}{TODO}{%
+\cventry{XAI-LLM-based Multimodal 3D Vital Node for Chronic Kidney Disease}{2025.07–2029.12}{%
   Korea ARPA-H project for CKD prevention, management, and early detection of acute deterioration\par
   Fine-tuned reasoning LLMs for clinical decision support; preprocessed and generated training data.}
 
-% TODO: Industry Experience / Awards / Patents 등 필요 시 추가
-% \section{Ind\color{black}ustry Experience}
-% \cventry{Role, Company}{YYYY.MM–YYYY.MM}{설명}
+\section{Tra\color{black}ining \& Activities}
+\cventry{Naver Boostcamp AI Tech, Computer Vision Track}{2023.03–2023.08}{%
+  Full-time AI engineering bootcamp (800 hours) organized by NAVER Connect Foundation\par
+  Completed four team projects (object detection, data-centric text detection, semantic segmentation);
+  built a dataset, trained a model, and deployed it as a service in the final project.}
+\cventry{EURON, Ewha Womans University Machine Learning Club}{2023.08–2024.02}{%
+  Weekly deep learning study sessions with presentations and discussion,
+  covering optimization, regularization, CNN architectures, and NLP.}
 
 \section{Ski\color{black}lls}
 \begin{minipage}{\linewidth}
-\textbf{Languages \& Tools:} Python, Linux, Git\par
+\textbf{Languages \& Tools:} Python, Linux, Git, Docker\par
 \textbf{Frameworks:} PyTorch, Hugging Face, LangChain, LangGraph\par
-\textbf{Languages:} Korean (native), English (TODO)
+\textbf{Languages:} Korean (native), English
 \end{minipage}
 
 \end{document}
